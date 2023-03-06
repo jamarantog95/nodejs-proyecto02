@@ -41,14 +41,14 @@ exports.findMeal = catchAsync(async (req, res) => {
 exports.createMeal = catchAsync(async (req, res) => {
 
     // OBTENER INFORMACION  DEL REQ BODY
-    const { name, price, restaurantId } = req.body;
+    const { name, price } = req.body;
     const { sessionUser } = req;
 
     // CREAR UN NUEVO PRODUCTO
     const meal = await Meal.create({
         name: name.toLowerCase(),
         price,
-        restaurantId: sessionUser.restaurantId,
+        restaurantId: sessionUser.id,
     });
 
     // RESPUESTA DEL SERVIDOR

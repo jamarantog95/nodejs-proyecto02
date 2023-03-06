@@ -5,7 +5,7 @@ const { Router } = require("express");
 const { findAllMeals, findMeal, createMeal, deleteMeal, updateMeal } = require("../controllers/meals.controller");
 const { validMealById } = require("../middlewares/meal.middlewares");
 const { validateFields } = require("../middlewares/validatefield.middlewares");
-const { protect } = require("../middlewares/auth.middlewares");
+const { protect, restrictTo } = require("../middlewares/auth.middlewares");
 
 const router = Router();
 
@@ -24,14 +24,14 @@ router.use(protect);
 // Esta ruta me va a crear una comida ,esta ruta viene
 // del archivo servidor que tiene un path meal y este ruta se dirige hacia
 // el controlador de productos que se llama createMeal
-router.post('/:restaurantid', [
+router.post('/:restaurantId', [
     // isEmpty: Valida que no este vacio
     check('name', 'The name is required').not().isEmpty(),
     check('price', 'The price is required').not().isEmpty(),
     check('price', 'The price must be a number').isInt(),
 
     validateFields,
-    // restrictTo('admin'),
+    restrictTo('admin'),
 ], createMeal);
 
 
