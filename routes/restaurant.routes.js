@@ -38,7 +38,7 @@ router.patch('/:id', [
 
     validateFields,
     validRestaurantById,
-    // restrictTo('admin'),
+    restrictTo('admin'),
     //protectAccountOwner
 ], updateRestaurant);
 
