@@ -10,14 +10,14 @@ const { validateFields } = require("../middlewares/validatefield.middlewares");
 const router = Router();
 
 
+router.use(protect);
+
 
 router.get('/', findAllRestaurants);
 
 
 router.get('/:id', validRestaurantById, findRestaurant);
 
-
-router.use(protect);
 
 router.post('/', [
     // isEmpty: Valida que no este vacio
