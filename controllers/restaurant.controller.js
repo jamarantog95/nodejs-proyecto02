@@ -7,6 +7,7 @@ exports.findAllRestaurants = catchAsync(async (req, res) => {
 
     // BUSCAMOS TODOS LOS RESTAURANTES CON STATUS TRUE
     const restaurants = await Restaurant.findAll({
+        attributes: { exclude: ["createdAt", "updatedAt"] },
         where: {
             status: 'active',
         }

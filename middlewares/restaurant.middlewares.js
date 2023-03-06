@@ -9,6 +9,7 @@ exports.validRestaurantById = catchAsync(async (req, res, next) => {
 
     // BUSCAR EL RESTAURANT DE FORMA INDIVIDUAL
     const restaurant = await Restaurant.findOne({
+        attributes: { exclude: ["createdAt", "updatedAt"] },
         where: {
             // id:id,
             id,

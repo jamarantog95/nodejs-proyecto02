@@ -5,6 +5,7 @@ exports.findAllMeals = catchAsync(async (req, res) => {
 
     // BUSCAMOS TODOS LAS COMIDAS CON STATUS TRUE
     const meals = await Meal.findAll({
+        attributes: { exclude: ["createdAt", "updatedAt", "orderId"] },
         where: {
             status: 'active',
         }

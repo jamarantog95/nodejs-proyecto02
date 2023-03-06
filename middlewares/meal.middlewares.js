@@ -8,6 +8,7 @@ exports.validMealById = catchAsync(async (req, res, next) => {
 
     // BUSCAR EL MEAL DE FORMA INDIVIDUAL
     const meal = await Meal.findOne({
+        attributes: { exclude: ["createdAt", "updatedAt", "orderId"] },
         where: {
             // id:id,
             id,
@@ -17,7 +18,7 @@ exports.validMealById = catchAsync(async (req, res, next) => {
 
     // SI NO EXISTE ENVIAMOS UN ERROR
     if (!meal) {
-        return next(new AppError('Product not found', 404));
+        return next(new AppError('Meal not found', 404));
     }
 
     req.meal = meal;
