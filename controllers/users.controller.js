@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 
 

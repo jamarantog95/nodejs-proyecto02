@@ -1,5 +1,5 @@
 const Order = require("../models/order.model");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 
 exports.validOrderById = catchAsync(async (req, res, next) => {

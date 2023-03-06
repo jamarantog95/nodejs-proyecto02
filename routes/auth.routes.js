@@ -11,7 +11,7 @@ const router = Router();
 
 router.post('/signup', [
     // isEmpty: Valida que no este vacio
-    check('username', 'The username must be mandatory').not().isEmpty(),
+    check('name', 'The username must be mandatory').not().isEmpty(),
     check('email', 'The email must be mandatory').not().isEmpty(),
     // isEmail: Valida que este en formato de correo electronico
     check('email', 'The email must be a correct format').isEmail(),

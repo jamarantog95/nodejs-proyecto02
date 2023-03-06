@@ -2,7 +2,7 @@
 const { promisify } = require('util');
 const jwt = require("jsonwebtoken");
 const AppError = require('../utils/appError');
-const catchAsync = require('../utils/catchAsync,js');
+const catchAsync = require('../utils/catchAsync.js');
 
 
 exports.protect = catchAsync(async (req, res, next) => {

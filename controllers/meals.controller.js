@@ -1,5 +1,5 @@
 const Meal = require("../models/meals.model");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 exports.findAllMeals = catchAsync(async (req, res) => {
 

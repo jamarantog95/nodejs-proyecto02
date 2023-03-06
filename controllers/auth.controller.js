@@ -1,7 +1,8 @@
 const User = require("../models/user.model");
 const AppError = require("../utils/appError");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 const bcrypt = require('bcryptjs');
+const generateJWT = require("../utils/jwt");
 
 exports.loginUser = catchAsync(async (req, res, next) => {
     const { email, password } = req.body;

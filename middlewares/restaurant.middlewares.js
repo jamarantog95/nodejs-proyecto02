@@ -1,6 +1,6 @@
 const Restaurant = require("../models/restaurants.model");
 const AppError = require("../utils/appError");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 
 exports.validRestaurantById = catchAsync(async (req, res, next) => {

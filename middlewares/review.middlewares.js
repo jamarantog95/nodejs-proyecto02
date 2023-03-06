@@ -1,6 +1,6 @@
 const Review = require("../models/review.model");
 const AppError = require("../utils/appError");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 
 exports.validReviewById = catchAsync(async (req, res, next) => {

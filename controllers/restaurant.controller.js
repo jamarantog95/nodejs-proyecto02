@@ -1,6 +1,6 @@
 const Restaurant = require("../models/restaurants.model");
 const Review = require("../models/review.model");
-const catchAsync = require("../utils/catchAsync,js");
+const catchAsync = require("../utils/catchAsync.js");
 
 
 exports.findAllRestaurants = catchAsync(async (req, res) => {

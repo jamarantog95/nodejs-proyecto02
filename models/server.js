@@ -15,13 +15,14 @@ const { userRouter } = require('../routes/user.routes');
 const { orderRouter } = require('../routes/order.routes');
 
 const initModel = require('./initModel');
+const AppError = require('../utils/appError');
 
 class Server {
     constructor() {
         //DEFINIMOS LA APLICACIÓN DE EXPRESS Y SE LA ASIGNAMOS A LA PROPIEDAD APP
         this.app = express();
         //DEFINIMOS EL PUERTO QUE LO TENEMOS EN LOS ENVIROMENTS
-        this.port = process.env.PORT || 3000;
+        this.port = process.env.PORT || 4000;
         // DEFINIMOS EL NRO DE PETICIONES QUE VA A PERMITIR POR LIMITE DE TIEMPO
         this.limiter = rateLimit({
             max: 100,
