@@ -24,7 +24,7 @@ router.post('/', [
     check('name', 'The name is required').not().isEmpty(),
     check('address', 'The address is required').not().isEmpty(),
     check('rating', 'The rating is required').not().isEmpty(),
-    check('rating', 'The price must be a number').isInt({ min: 0, max: 5 }),
+    check('rating', 'The rating must be range a 1 or 5').isInt({ min: 1, max: 5 }),
 
     validateFields,
     // restrictTo('admin'),
