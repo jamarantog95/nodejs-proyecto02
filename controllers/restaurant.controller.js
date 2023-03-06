@@ -118,12 +118,13 @@ exports.createReview = catchAsync(async (req, res) => {
     const { comment, rating } = req.body;
     const { sessionUser } = req;
 
+
     // CREAR UN NUEVA RESEÑA
     const review = await Review.create({
+        userId: sessionUser.id,
+        restaurantId: sessionUser.id,
         comment: comment.toLowerCase(),
         rating,
-        userId: sessionUser.userId,
-        restaurantId: sessionUser.restaurantId,
     });
 
     // RESPUESTA DEL SERVIDOR

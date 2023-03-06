@@ -10,14 +10,15 @@ const { validateFields } = require("../middlewares/validatefield.middlewares");
 const router = Router();
 
 
-router.use(protect);
-
 
 router.get('/', findAllRestaurants);
 
 
 router.get('/:id', validRestaurantById, findRestaurant);
 
+
+
+router.use(protect);
 
 router.post('/', [
     // isEmpty: Valida que no este vacio
@@ -47,29 +48,29 @@ router.delete('/:id', validRestaurantById, deleteRestaurant);
 
 
 
-router.post('/reviews/:id', [
+router.post('/reviews/:restaurantId', [
     // isEmpty: Valida que no este vacio
     check('comment', 'The comment is required').not().isEmpty(),
     check('rating', 'The rating is required').not().isEmpty(),
 
     validateFields,
-    // restrictTo('admin'),
+    restrictTo('admin'),
 ], createReview);
 
 
-router.patch('/reviews/restaurantId/:id', [
+router.patch('/reviews/:restaurantId/:id', [
     // isEmpty: Valida que no este vacio
     check('comment', 'The comment is required').not().isEmpty(),
     check('rating', 'The rating is required').not().isEmpty(),
 
     validateFields,
-    validReviewById
-    // restrictTo('admin'),
+    validReviewById,
+    restrictTo('admin'),
     //protectAccountOwner
 ], updateReview);
 
 
-router.delete('/reviews/restaurantId/:id', validReviewById, deleteReview);
+router.delete('/reviews/:restaurantId/:id', validReviewById, deleteReview);
 
 
 module.exports = {
