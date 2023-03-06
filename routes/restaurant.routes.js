@@ -2,7 +2,7 @@
 const { Router } = require("express");
 const { check } = require("express-validator");
 const { findAllRestaurants, findRestaurant, updateRestaurant, createRestaurant, deleteReview, updateReview, createReview, deleteRestaurant } = require("../controllers/restaurant.controller");
-const { protect } = require("../middlewares/auth.middlewares");
+const { protect, restrictTo } = require("../middlewares/auth.middlewares");
 const { validRestaurantById } = require("../middlewares/restaurant.middlewares");
 const { validReviewById } = require("../middlewares/review.middlewares");
 const { validateFields } = require("../middlewares/validatefield.middlewares");
@@ -27,7 +27,7 @@ router.post('/', [
     check('rating', 'The rating must be range a 1 or 5').isInt({ min: 1, max: 5 }),
 
     validateFields,
-    // restrictTo('admin'),
+    restrictTo('admin'),
 ], createRestaurant);
 
 
