@@ -11,19 +11,20 @@ const router = Router();
 
 // Esta ruta me va a encontrar todos los comidas, esta ruta viene
 // del archivo servidor que tiene un path meal y este ruta se dirige hacia
-// el controlador de productos que se llama findAllMeals
+// el controlador de comidas que se llama findAllMeals
 router.get('/', findAllMeals);
 
 // Esta ruta me va a encontrar una comida dado un id, este id se lo especifico
 // por el path es decir por los parametros de la url, esta ruta viene
 // del archivo servidor que tiene un path product y este ruta se dirige hacia
-// el controlador de productos que se llama findProduct
+// el controlador de comidas que se llama findProduct
 router.get('/:id', validMealById, findMeal);
+
 
 router.use(protect);
 // Esta ruta me va a crear una comida ,esta ruta viene
 // del archivo servidor que tiene un path meal y este ruta se dirige hacia
-// el controlador de productos que se llama createMeal
+// el controlador de comidas que se llama createMeal
 router.post('/:restaurantId', [
     // isEmpty: Valida que no este vacio
     check('name', 'The name is required').not().isEmpty(),
@@ -38,7 +39,7 @@ router.post('/:restaurantId', [
 // Esta ruta me va a actualizar una comida dado un id, este id se lo especifico
 // por el path es decir por los parametros de la url, esta ruta viene
 // del archivo servidor que tiene un path meal y este ruta se dirige hacia
-// el controlador de productos que se llama updateMeal
+// el controlador de comidas que se llama updateMeal
 router.patch('/:id', [
     // isEmpty: Valida que no este vacio
     check('name', 'The name is required').not().isEmpty(),
@@ -53,7 +54,7 @@ router.patch('/:id', [
 // Esta ruta me va a deshabilitar una comida dado un id, este id se lo especifico
 // por el path es decir por los parametros de la url, esta ruta viene
 // del archivo servidor que tiene un path meal y este ruta se dirige hacia
-// el controlador de productos que se llama deleteMeal
+// el controlador de comidas que se llama deleteMeal
 router.delete('/:id', validMealById, deleteMeal);
 
 

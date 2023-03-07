@@ -14,6 +14,15 @@ exports.validMealById = catchAsync(async (req, res, next) => {
             id,
             status: 'active',
         },
+        include: [
+            {
+                model: Restaurant,
+                attributes: { exclude: ["createdAt", "updatedAt"] },
+                where: {
+                    status: 'active',
+                },
+            }
+        ]
     });
 
     // SI NO EXISTE ENVIAMOS UN ERROR
